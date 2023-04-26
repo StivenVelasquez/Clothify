@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Clothify</string>
+    <string name="name">Nombre de usuario</string>
+    <string name="required_field">Campo requerido</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="rep_password">Repetir contraseña</string>
+    <string name="register">Registrar</string>
 </resources>
