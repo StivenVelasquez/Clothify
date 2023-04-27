@@ -15,17 +15,25 @@ class SignInViewModel: ViewModel() {
     val correo = "ss@gmail.com"
     val pass = "ss1234"
 
+    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+[.]+[a-z]+"
+
     fun validateFields(email: String, password: String) {
         if (email.isEmpty() || password.isEmpty()){
             _errorMsg.value = "Digite todos los campos"
         }
         else{
-            if (email != correo || password != pass){
-                _errorMsg.value = "Correo o contraseña incorrectos"
+            if (!email.matches(emailPattern.toRegex())){
+                _errorMsg.value = "Ingrese un correo válido"
             }
             else{
-                _isSuccessSignIn.value = true
+                if (email != correo || password != pass){
+                    _errorMsg.value = "Correo o contraseña incorrectos"
+                }
+                else{
+                    _isSuccessSignIn.value = true
+                }
             }
+
         }
     }
 }

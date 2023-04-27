@@ -14,6 +14,7 @@ class SignUpViewModel : ViewModel() {
     private val _isSuccessSignUp: MutableLiveData <Boolean> = MutableLiveData()
     val isSuccessSignUp: LiveData <Boolean> = _isSuccessSignUp
 
+    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+[.]+[a-z]+"
 
     fun validateFields(user: String, email: String, password: String, repPassword: String){
 
@@ -21,15 +22,18 @@ class SignUpViewModel : ViewModel() {
             _errorMsg.value = "Debe llenar todos los campos"
         }
         else {
-            if (password.length < 6) {
-                _errorMsg.value = "La contraseña debe tener mínimo 6 dígitos"
+            if (!email.matches(emailPattern.toRegex())){
+                _errorMsg.value = "Ingrese un correo válido"
             }
-            else{
-                if (password != repPassword){
-                    _errorMsg.value = "Las contraseñas no son iguales"
-                }
-                else {
-                    _isSuccessSignUp.value = true
+            else {
+                if (password.length < 6) {
+                    _errorMsg.value = "La contraseña debe tener mínimo 6 dígitos"
+                } else {
+                    if (password != repPassword) {
+                        _errorMsg.value = "Las contraseñas no son iguales"
+                    } else {
+                        _isSuccessSignUp.value = true
+                    }
                 }
             }
         }

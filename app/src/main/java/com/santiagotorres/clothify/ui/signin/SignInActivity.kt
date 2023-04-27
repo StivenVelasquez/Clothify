@@ -38,6 +38,8 @@ class SignInActivity : AppCompatActivity() {
         signInViewModel.isSuccessSignIn.observe(this){
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
+            signInBinding.emailEditText.setText("")
+            signInBinding.passwordEditText.setText("")
         }
 
         signInBinding.loginButton.setOnClickListener(){
