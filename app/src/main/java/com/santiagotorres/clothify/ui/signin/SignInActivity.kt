@@ -1,12 +1,46 @@
 package com.santiagotorres.clothify.ui.signin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.santiagotorres.clothify.R
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import com.santiagotorres.clothify.databinding.ActivitySignInBinding
+import com.santiagotorres.clothify.ui.home.HomeActivity
+import com.santiagotorres.clothify.ui.signup.SignUpActivity
 
 class SignInActivity : AppCompatActivity() {
+
+    private lateinit var signInBinding: ActivitySignInBinding
+    private lateinit var signInViewModel: SignInViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_in)
+        signInBinding = ActivitySignInBinding.inflate(layoutInflater)
+        signInViewModel = ViewModelProvider(this)[SignInViewModel::class.java]
+
+        val view = signInBinding.root
+        setContentView(view)
+
+        signInViewModel.errorMsg.observe(this){errorMsg ->
+            Toast.makeText(applicationContext, errorMsg, Toast.LENGTH_LONG).show()
+        }
+
+        signInBinding.registerTextView.setOnClickListener(){
+            startActivity(Intent(this, SignUpActivity::class.java))
+        }
+
+        signInViewModel.isSuccessSignIn.observe(this){
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        signInBinding.loginButton.setOnClickListener(){
+            val email = signInBinding.emailEditText.text.toString()
+            val password = signInBinding.passwordEditText.text.toString()
+
+            signInViewModel.validateFields (email, password)
+
+        }
     }
 }

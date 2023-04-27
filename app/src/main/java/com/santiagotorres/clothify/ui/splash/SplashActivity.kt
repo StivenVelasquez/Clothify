@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import com.santiagotorres.clothify.databinding.ActivitySplashBinding
 import com.santiagotorres.clothify.ui.main.MainActivity
+import com.santiagotorres.clothify.ui.signin.SignInActivity
 import com.santiagotorres.clothify.ui.signup.SignUpActivity
 import java.util.*
 import kotlin.concurrent.timerTask
@@ -26,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
         val timer = Timer()
         timer.schedule(
             timerTask {
-                val intent = Intent(this@SplashActivity, SignUpActivity::class.java)
+                val intent = Intent(this@SplashActivity, SignInActivity::class.java)
                 startActivity(intent)
                 finish()
             }, 2000

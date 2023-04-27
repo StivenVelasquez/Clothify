@@ -6,4 +6,9 @@
     <string name="password">Contraseña</string>
     <string name="rep_password">Repetir contraseña</string>
     <string name="register">Registrar</string>
+    <string name="entrar">Iniciar sesión</string>
+    <string name="forget">Olvidaste tu contraseña?</string>
+    <string name="reg">No tienes cuenta aún?</string>
+    <string name="reg2">Regístrate</string>
+
 </resources>

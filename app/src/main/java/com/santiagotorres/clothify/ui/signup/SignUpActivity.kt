@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import com.santiagotorres.clothify.R
 import com.santiagotorres.clothify.databinding.ActivitySignUpBinding
 import com.santiagotorres.clothify.ui.signin.SignInActivity
 
@@ -26,8 +28,24 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         signUpViewModel.isSuccessSignUp.observe(this){
+            val builder = AlertDialog.Builder(this)
+            val viewdialog = layoutInflater.inflate(R.layout.dialog1, null)
+
+            builder.setView(viewdialog)
+
+            val dialog = builder.create()
+            dialog.show()
+
+            val txtClave : EditText = view.findViewById(R.id.TxtClave)
+
             val intent = Intent(this, SignInActivity::class.java)
-            startActivity(intent)
+
+            viewdialog.setOnClickListener(){
+                dialog.hi
+                //startActivity(intent)
+
+            }
+
         }
 
 
@@ -39,6 +57,7 @@ class SignUpActivity : AppCompatActivity() {
             val repPassword= signUpBinding.repPasswordEditText.text.toString()
 
             signUpViewModel.validateFields(user,email,password,repPassword)
+
 
         }
     }
