@@ -10,5 +10,14 @@
     <string name="forget">Olvidaste tu contraseña?</string>
     <string name="reg">No tienes cuenta aún?</string>
     <string name="reg2">Regístrate</string>
+    <string name="dialog_one_style_title">Registro Exitoso</string>
+    <string name="dialog_one_style_message">Ahora puede iniciar sesión con tus credenciales</string>
+    <string name="dialog_one_style_positive_btn">Aceptar</string>
+    <string name="recovery_title">Recuperar contraseña</string>
+    <string name="recovery_text">Ingresa tu correo electrónico y te llegará un link para restablecer tu contraseña</string>
+    <string name="send">Enviar</string>
+    <string name="dialog_one_style_title_recovery">Correo electrónico enviado</string>
+    <string name="dialog_one_style_message_recovery">Revisa tu correo electrónico y abre el mensaje que te hemos enviado, da click en el link y digita tu nueva contraseña</string>
+    <string name="dialog_one_style_positive_btn_recovery">Aceptar</string>
 
 </resources>

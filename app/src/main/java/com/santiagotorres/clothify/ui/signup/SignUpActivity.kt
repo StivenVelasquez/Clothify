@@ -3,9 +3,11 @@ package com.santiagotorres.clothify.ui.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.santiagotorres.clothify.R
 import com.santiagotorres.clothify.databinding.ActivitySignUpBinding
 import com.santiagotorres.clothify.ui.signin.SignInActivity
@@ -28,23 +30,24 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         signUpViewModel.isSuccessSignUp.observe(this){
-            val builder = AlertDialog.Builder(this)
-            val viewdialog = layoutInflater.inflate(R.layout.dialog1, null)
 
-            builder.setView(viewdialog)
+            val dialog = AlertDialog.Builder(this)
+                .setTitle(R.string.dialog_one_style_title)
+                .setMessage(R.string.dialog_one_style_message)
+                .setPositiveButton(R.string.dialog_one_style_positive_btn) { view, _ ->
+                    val intent = Intent(this, SignInActivity::class.java)
+                    startActivity(intent)
+                    view.dismiss()
+                    signUpBinding.emailEditText.setText("")
+                    signUpBinding.nameEditText.setText("")
+                    signUpBinding.passwordEditText.setText("")
+                    signUpBinding.repPasswordEditText.setText("")
+                }
+                .setCancelable(false)
+                .create()
 
-            val dialog = builder.create()
             dialog.show()
 
-            val txtClave : EditText = view.findViewById(R.id.TxtClave)
-
-            val intent = Intent(this, SignInActivity::class.java)
-
-            viewdialog.setOnClickListener(){
-                dialog.hi
-                //startActivity(intent)
-
-            }
 
         }
 
@@ -61,4 +64,5 @@ class SignUpActivity : AppCompatActivity() {
 
         }
     }
+
 }

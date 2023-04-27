@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.santiagotorres.clothify.databinding.ActivitySignInBinding
 import com.santiagotorres.clothify.ui.home.HomeActivity
+import com.santiagotorres.clothify.ui.recovery.RecoveryActivity
 import com.santiagotorres.clothify.ui.signup.SignUpActivity
 
 class SignInActivity : AppCompatActivity() {
@@ -28,6 +29,10 @@ class SignInActivity : AppCompatActivity() {
 
         signInBinding.registerTextView.setOnClickListener(){
             startActivity(Intent(this, SignUpActivity::class.java))
+        }
+
+        signInBinding.recoveryTextView.setOnClickListener(){
+            startActivity(Intent(this, RecoveryActivity::class.java))
         }
 
         signInViewModel.isSuccessSignIn.observe(this){
