@@ -1,17 +1,14 @@
 package com.santiagotorres.clothify.ui.recovery
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.santiagotorres.clothify.R
 import com.santiagotorres.clothify.databinding.ActivityRecoveryBinding
-import com.santiagotorres.clothify.databinding.ActivitySignInBinding
-import com.santiagotorres.clothify.ui.home.HomeActivity
 import com.santiagotorres.clothify.ui.signin.SignInActivity
-import com.santiagotorres.clothify.ui.signin.SignInViewModel
 
 class RecoveryActivity : AppCompatActivity() {
 
