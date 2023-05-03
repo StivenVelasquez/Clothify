@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.santiagotorres.clothify.databinding.ActivitySignInBinding
+import com.santiagotorres.clothify.ui.BottomNavigationActivity
 import com.santiagotorres.clothify.ui.home.HomeActivity
 import com.santiagotorres.clothify.ui.recovery.RecoveryActivity
 import com.santiagotorres.clothify.ui.signup.SignUpActivity
@@ -36,7 +37,7 @@ class SignInActivity : AppCompatActivity() {
         }
 
         signInViewModel.isSuccessSignIn.observe(this){
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, BottomNavigationActivity::class.java)
             startActivity(intent)
             signInBinding.emailEditText.setText("")
             signInBinding.passwordEditText.setText("")
