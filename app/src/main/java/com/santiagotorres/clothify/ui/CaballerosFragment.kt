@@ -2,12 +2,11 @@ package com.santiagotorres.clothify.ui
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.santiagotorres.clothify.databinding.FragmentCaballerosBinding
-import com.santiagotorres.clothify.ui.ProductActivity
 
 class CaballerosFragment : Fragment() {
     private lateinit var caballerosBinding: FragmentCaballerosBinding

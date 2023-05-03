@@ -1,12 +1,9 @@
 package com.santiagotorres.clothify.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toolbar
-import androidx.navigation.ui.AppBarConfiguration
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.ActionBarDrawerToggle
 import com.santiagotorres.clothify.databinding.ActivityProductBinding
 
 class ProductActivity : AppCompatActivity() {

@@ -1,13 +1,12 @@
 package com.santiagotorres.clothify.ui.signin
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.santiagotorres.clothify.databinding.ActivitySignInBinding
 import com.santiagotorres.clothify.ui.BottomNavigationActivity
-import com.santiagotorres.clothify.ui.home.HomeActivity
 import com.santiagotorres.clothify.ui.recovery.RecoveryActivity
 import com.santiagotorres.clothify.ui.signup.SignUpActivity
 
