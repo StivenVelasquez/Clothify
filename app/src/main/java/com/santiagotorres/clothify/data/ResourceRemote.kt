@@ -18,21 +18,8 @@ sealed class ResourceRemote<T> (
 }
 enum class Status {
 
-    Success {
-        override fun toString(): String {
-            return super.toString()
-        }
-            },
-    Error {
-        override fun toString(): String {
-            return super.toString()
-        }
-          },
-    Loading {
-        override fun toString(): String {
-            return super.toString()
-        }
-
-    }
+    Success,
+    Error,
+    Loading
 
 }

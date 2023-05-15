@@ -45,13 +45,13 @@ class SplashActivity : AppCompatActivity() {
         timer.schedule(
             timerTask {
 
-                if (!isSessionActive){
-                    val intent = Intent(this@SplashActivity, SignInActivity::class.java)
+                if (isSessionActive){
+                    val intent = Intent(this@SplashActivity, BottomNavigationActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
                 else {
-                    val intent = Intent(this@SplashActivity, BottomNavigationActivity::class.java)
+                    val intent = Intent(this@SplashActivity, SignInActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
