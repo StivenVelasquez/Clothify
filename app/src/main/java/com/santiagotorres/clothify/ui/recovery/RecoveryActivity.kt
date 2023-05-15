@@ -35,10 +35,11 @@ class RecoveryActivity : AppCompatActivity() {
                 .setTitle(R.string.dialog_one_style_title_recovery)
                 .setMessage(R.string.dialog_one_style_message_recovery)
                 .setPositiveButton(R.string.dialog_one_style_positive_btn_recovery) { view, _ ->
-                    val intent = Intent(this, SignInActivity::class.java)
-                    startActivity(intent)
-                    view.dismiss()
-                    recoveryBinding.emailEditText.setText("")
+                    //val intent = Intent(this, SignInActivity::class.java)
+                    //startActivity(intent)
+                    //view.dismiss()
+                    //recoveryBinding.emailEditText.setText("")
+                    onBackPressedDispatcher.onBackPressed()
                 }
                 .setCancelable(false)
                 .create()

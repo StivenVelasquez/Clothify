@@ -1,12 +1,19 @@
 package com.santiagotorres.clothify.ui.signup
 
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.santiagotorres.clothify.data.ResourceRemote
+import com.santiagotorres.clothify.data.UserRepository
+import kotlinx.coroutines.launch
 
 
 class SignUpViewModel : ViewModel() {
+
+    private val userRepository = UserRepository()
 
     private val _errorMsg: MutableLiveData <String> = MutableLiveData()
     val errorMsg: LiveData <String> = _errorMsg
@@ -23,7 +30,7 @@ class SignUpViewModel : ViewModel() {
         }
         else {
             if (!email.matches(emailPattern.toRegex())){
-                _errorMsg.value = "Ingrese un correo válido"
+                _errorMsg.value = "Ingrese un correo electrónico válido"
             }
             else {
                 if (password.length < 6) {
@@ -32,15 +39,35 @@ class SignUpViewModel : ViewModel() {
                     if (password != repPassword) {
                         _errorMsg.value = "Las contraseñas no son iguales"
                     } else {
-                        _isSuccessSignUp.value = true
+
+                        viewModelScope.launch {
+                            val result = userRepository.signUpUser(email,password)
+                            result.let {resourceRemote ->
+                                when (resourceRemote){
+
+                                    is ResourceRemote.Success -> {
+                                        _isSuccessSignUp.postValue(true)
+                                    }
+
+                                    is ResourceRemote.Error -> {
+                                        var msg = resourceRemote.message
+                                        when (resourceRemote.message){
+                                            "A network error (such as timeout, interrupted connection or unreachable host) has occurred." -> msg = "Revise su conexión de internet"
+                                            "The email address is already in use by another account." -> msg = "Ya existe una cuenta con ese correo electrónico"
+                                        }
+                                        _errorMsg.postValue(msg!!)
+
+                                    }
+
+                                    else -> {
+
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
-
-
-
-
     }
-
 }

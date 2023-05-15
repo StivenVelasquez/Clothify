@@ -4,7 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.santiagotorres.clothify.databinding.ActivitySplashBinding
+import com.santiagotorres.clothify.ui.BottomNavigationActivity
 import com.santiagotorres.clothify.ui.main.MainActivity
 import com.santiagotorres.clothify.ui.signin.SignInActivity
 import com.santiagotorres.clothify.ui.signup.SignUpActivity
@@ -14,22 +19,45 @@ import kotlin.concurrent.timerTask
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var splashBinding:ActivitySplashBinding
+    private lateinit var splashViewModel: SplashViewModel
 
+    private var auth: FirebaseAuth = Firebase.auth
 
+    private var isSessionActive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+
         splashBinding = ActivitySplashBinding.inflate(layoutInflater)
+        splashViewModel = ViewModelProvider(this)[SplashViewModel::class.java]
+
         val view = splashBinding.root
         setContentView(view)
+
+        splashViewModel.validateSessionActive()
+
+        splashViewModel.isSessionActive.observe(this){_isSessionActive ->
+            this.isSessionActive = _isSessionActive
+        }
 
         val timer = Timer()
         timer.schedule(
             timerTask {
-                val intent = Intent(this@SplashActivity, SignInActivity::class.java)
-                startActivity(intent)
-                finish()
+
+                if (!isSessionActive){
+                    val intent = Intent(this@SplashActivity, SignInActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                else {
+                    val intent = Intent(this@SplashActivity, BottomNavigationActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+
+
+
             }, 2000
         )
 
