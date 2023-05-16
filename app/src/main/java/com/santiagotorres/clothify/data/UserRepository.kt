@@ -42,6 +42,19 @@ class UserRepository {
 
     }
 
+    suspend fun recoveryUser(email: String): ResourceRemote<String?> {
+
+        return try {
+            val result = auth.sendPasswordResetEmail(email).await()
+            ResourceRemote.Success(data = email)
+        } catch (e: FirebaseAuthException){
+            ResourceRemote.Error(message = e.localizedMessage)
+        } catch (e: FirebaseNetworkException){
+            ResourceRemote.Error(message = e.localizedMessage)
+        }
+
+    }
+
     fun isSessionActive(): Boolean {
         return auth.currentUser != null
     }

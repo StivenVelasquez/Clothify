@@ -1,11 +1,15 @@
 package com.santiagotorres.clothify.ui.recovery
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.santiagotorres.clothify.R
 import com.santiagotorres.clothify.databinding.ActivityRecoveryBinding
 import com.santiagotorres.clothify.ui.signin.SignInActivity
@@ -31,20 +35,27 @@ class RecoveryActivity : AppCompatActivity() {
 
 
         recoveryViewModel.isCorrect.observe(this){
-            val dialog = AlertDialog.Builder(this)
-                .setTitle(R.string.dialog_one_style_title_recovery)
-                .setMessage(R.string.dialog_one_style_message_recovery)
-                .setPositiveButton(R.string.dialog_one_style_positive_btn_recovery) { view, _ ->
-                    //val intent = Intent(this, SignInActivity::class.java)
-                    //startActivity(intent)
-                    //view.dismiss()
-                    //recoveryBinding.emailEditText.setText("")
-                    onBackPressedDispatcher.onBackPressed()
-                }
-                .setCancelable(false)
-                .create()
 
-            dialog.show()
+
+            Firebase.auth.sendPasswordResetEmail(recoveryBinding.emailEditText.text.toString())
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val dialog = AlertDialog.Builder(this)
+                            .setTitle(R.string.dialog_one_style_title_recovery)
+                            .setMessage(R.string.dialog_one_style_message_recovery)
+                            .setPositiveButton(R.string.dialog_one_style_positive_btn_recovery) { view, _ ->
+                                //val intent = Intent(this, SignInActivity::class.java)
+                                //startActivity(intent)
+                                //view.dismiss()
+                                //recoveryBinding.emailEditText.setText("")
+                                onBackPressedDispatcher.onBackPressed()
+                            }
+                            .setCancelable(false)
+                            .create()
+
+                        dialog.show()
+                    }
+                }
 
         }
 
