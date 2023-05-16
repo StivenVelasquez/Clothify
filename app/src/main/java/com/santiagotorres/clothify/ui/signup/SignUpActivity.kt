@@ -1,6 +1,5 @@
 package com.santiagotorres.clothify.ui.signup
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -8,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.santiagotorres.clothify.R
 import com.santiagotorres.clothify.databinding.ActivitySignUpBinding
-import com.santiagotorres.clothify.ui.signin.SignInActivity
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -33,13 +31,14 @@ class SignUpActivity : AppCompatActivity() {
                 .setTitle(R.string.dialog_one_style_title)
                 .setMessage(R.string.dialog_one_style_message)
                 .setPositiveButton(R.string.dialog_one_style_positive_btn) { view, _ ->
-                    val intent = Intent(this, SignInActivity::class.java)
-                    startActivity(intent)
-                    view.dismiss()
-                    signUpBinding.emailEditText.setText("")
-                    signUpBinding.nameEditText.setText("")
-                    signUpBinding.passwordEditText.setText("")
-                    signUpBinding.repPasswordEditText.setText("")
+                    //val intent = Intent(this, SignInActivity::class.java)
+                    //startActivity(intent)
+                    //.dismiss()
+                    //signUpBinding.emailEditText.setText("")
+                    //signUpBinding.nameEditText.setText("")
+                    //signUpBinding.passwordEditText.setText("")
+                    //signUpBinding.repPasswordEditText.setText("")
+                    onBackPressedDispatcher.onBackPressed()
                 }
                 .setCancelable(false)
                 .create()
@@ -57,7 +56,7 @@ class SignUpActivity : AppCompatActivity() {
             val password = signUpBinding.passwordEditText.text.toString()
             val repPassword= signUpBinding.repPasswordEditText.text.toString()
 
-            signUpViewModel.validateFields(user,email,password,repPassword)
+            signUpViewModel.validateFields(user,email,password,repPassword,user)
 
 
         }

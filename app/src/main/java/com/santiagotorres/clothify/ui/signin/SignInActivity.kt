@@ -38,8 +38,7 @@ class SignInActivity : AppCompatActivity() {
         signInViewModel.isSuccessSignIn.observe(this){
             val intent = Intent(this, BottomNavigationActivity::class.java)
             startActivity(intent)
-            signInBinding.emailEditText.setText("")
-            signInBinding.passwordEditText.setText("")
+            finish()
         }
 
         signInBinding.loginButton.setOnClickListener(){

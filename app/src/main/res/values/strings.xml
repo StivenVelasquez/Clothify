@@ -44,5 +44,8 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="name_header">Clothify</string>
+    <string name="sign_out">Cerrar sesión</string>
+    <string name="example_name">Goku</string>
+    <string name="email_example">goku@gmaill.com</string>
 
 </resources>

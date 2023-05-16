@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "845851841596",
+    "project_id": "clothify-87964",
+    "storage_bucket": "clothify-87964.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845851841596:android:7866bac23763464202df39",
+        "android_client_info": {
+          "package_name": "com.santiagotorres.clothify"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845851841596-qamua9eu237ohe5mde78jqqmvvjrjo36.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6ltMBmlZMXtkaGwO0PuhSPSYUHs6vXMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845851841596-qamua9eu237ohe5mde78jqqmvvjrjo36.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
