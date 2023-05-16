@@ -1,6 +1,5 @@
 package com.santiagotorres.clothify.ui.signup
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -8,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.santiagotorres.clothify.R
 import com.santiagotorres.clothify.databinding.ActivitySignUpBinding
-import com.santiagotorres.clothify.ui.signin.SignInActivity
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -58,7 +56,7 @@ class SignUpActivity : AppCompatActivity() {
             val password = signUpBinding.passwordEditText.text.toString()
             val repPassword= signUpBinding.repPasswordEditText.text.toString()
 
-            signUpViewModel.validateFields(user,email,password,repPassword)
+            signUpViewModel.validateFields(user,email,password,repPassword,user)
 
 
         }

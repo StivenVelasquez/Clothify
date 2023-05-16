@@ -41,6 +41,7 @@ class SignInViewModel: ViewModel() {
                             when (resourceRemote.message){
                                 "A network error (such as timeout, interrupted connection or unreachable host) has occurred." -> msg = "Revise su conexión de internet"
                                 "The password is invalid or the user does not have a password." -> msg = "Correo electrónico o contraseña inválida"
+                                "There is no user record corresponding to this identifier. The user may have been deleted." -> msg = "No existe una cuenta asociada a este correo electrónico"
                             }
                             _errorMsg.postValue(msg!!)
                         }
