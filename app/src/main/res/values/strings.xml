@@ -49,5 +49,7 @@
     <string name="email_example">goku@gmaill.com</string>
     <string name="item_name">Artículo</string>
     <string name="precio">precio</string>
+    <string name="precio_total">precio total</string>
+    <string name="cantidad">Cantidad</string>
 
 </resources>
