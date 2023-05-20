@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.santiagotorres.clothify.R
 import com.santiagotorres.clothify.ui.CaballerosFragment
 import com.santiagotorres.clothify.ui.DamasFragment
-import com.santiagotorres.clothify.ui.NinosFragment
+import com.santiagotorres.clothify.ui.ninos.RopaNinosFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.damas,
@@ -22,7 +22,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         return when(position){
             0-> return DamasFragment()
             1-> return CaballerosFragment()
-            else->return NinosFragment()
+            else->return RopaNinosFragment()
         }
     }
 

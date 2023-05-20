@@ -17,10 +17,10 @@ class DamasFragment : Fragment() {
     ): View? {
         damasBinding= FragmentDamasBinding.inflate(inflater,container,false)
 
-        damasBinding.imageView.setOnClickListener {
+        /*damasBinding.imageView.setOnClickListener {
             val intent = Intent(activity, ProductActivity::class.java)
             startActivity(intent)
-        }
+        }*/
 
         val view= damasBinding.root
         return view
