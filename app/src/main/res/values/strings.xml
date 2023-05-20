@@ -51,5 +51,6 @@
     <string name="precio">precio</string>
     <string name="precio_total">precio total</string>
     <string name="cantidad">Cantidad</string>
+    <string name="quantity">Cantidad</string>
 
 </resources>

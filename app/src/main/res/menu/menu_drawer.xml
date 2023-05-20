@@ -6,11 +6,10 @@
         android:icon="@drawable/informacion"
         android:title="@string/acerca" />
 
-<!--
+
     <item
-        android:id="@+id/cerrar"
+        android:id="@+id/CerrarFragment"
         android:icon="@drawable/cerrar"
         android:title="@string/cerrar" />
--->
 
 </menu>

@@ -26,8 +26,6 @@ class PerfilViewModel: ViewModel () {
         userRepository.signOut()
     }
 
-
-
     fun loadUserInfo() {
 
         viewModelScope.launch {

@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.santiagotorres.clothify.R
-import com.santiagotorres.clothify.ui.CaballerosFragment
-import com.santiagotorres.clothify.ui.DamasFragment
+import com.santiagotorres.clothify.ui.men.RopaHombresFragment
 import com.santiagotorres.clothify.ui.ninos.RopaNinosFragment
+import com.santiagotorres.clothify.ui.women.RopaMujeresFragment
 
 private val TAB_TITLES = arrayOf(
     R.string.damas,
@@ -20,8 +20,8 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
 
     override fun getItem(position: Int): Fragment {
         return when(position){
-            0-> return DamasFragment()
-            1-> return CaballerosFragment()
+            0-> return RopaMujeresFragment()
+            1-> return RopaHombresFragment()
             else->return RopaNinosFragment()
         }
     }

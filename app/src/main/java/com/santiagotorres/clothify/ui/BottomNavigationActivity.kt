@@ -1,5 +1,6 @@
 package com.santiagotorres.clothify.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -12,8 +13,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.santiagotorres.clothify.R
 import com.santiagotorres.clothify.databinding.ActivityBottomNavigationBinding
+import com.santiagotorres.clothify.ui.signin.SignInActivity
 
 class BottomNavigationActivity : AppCompatActivity() {
 

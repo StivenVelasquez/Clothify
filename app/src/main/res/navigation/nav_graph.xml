@@ -26,5 +26,5 @@
     <fragment
         android:id="@+id/carritoFragment"
         android:name="com.santiagotorres.clothify.ui.carrito.CarritoFragment"
-        android:label="CarritoFragment" />
+        android:label="@string/carrito" />
 </navigation>
