@@ -5,27 +5,18 @@
     android:id="@+id/LinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.PerfilFragment">
-
-    <Button
-        android:id="@+id/sign_out_button"
-        android:layout_width="338dp"
-        android:layout_height="70dp"
-        android:text="@string/sign_out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".ui.perfil.PerfilFragment">
 
     <ImageView
         android:id="@+id/imagen_perfil"
         android:layout_width="140dp"
         android:layout_height="179dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/imagen_perfil" />
+        tools:src="@drawable/carrito" />
 
     <TextView
         android:id="@+id/text_view_name"

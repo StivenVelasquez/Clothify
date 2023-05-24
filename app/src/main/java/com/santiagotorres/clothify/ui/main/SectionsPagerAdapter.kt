@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.santiagotorres.clothify.ui.main
 
 import android.content.Context
@@ -15,6 +17,7 @@ private val TAB_TITLES = arrayOf(
     R.string.ninos,
 )
 
+@Suppress("UNREACHABLE_CODE", "DEPRECATION")
 class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm) {
 
@@ -26,7 +29,7 @@ class SectionsPagerAdapter(private val context: Context, fm: FragmentManager) :
         }
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
+    override fun getPageTitle(position: Int): CharSequence {
         return context.resources.getString(TAB_TITLES[position])
     }
 

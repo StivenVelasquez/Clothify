@@ -3,6 +3,7 @@ package com.santiagotorres.clothify.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -56,6 +57,33 @@ class BottomNavigationActivity : AppCompatActivity() {
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
+
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.cerrar -> {
+                    // Cerrar sesión
+                    Firebase.auth.signOut()
+
+                    // Iniciar la actividad de inicio de sesión
+                    val intent = Intent(this, SignInActivity::class.java)
+                    startActivity(intent)
+
+                    // Finalizar la actividad actual
+                    finish()
+
+                    true
+                }
+
+                R.id.acerca -> {
+                    // Iniciar la actividad de acerca
+                    val intent = Intent(this, AcercaActivity::class.java)
+                    startActivity(intent)
+
+                    true
+                }
+                else -> false
+            }
+        }
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
@@ -76,4 +104,6 @@ class BottomNavigationActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
+
 }
